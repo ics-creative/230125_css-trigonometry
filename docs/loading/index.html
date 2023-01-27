@@ -22,9 +22,9 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      /** カスタムプロパティ(--index)でHTML内で付与したindex番号を取得して角度を計算 */
+      /** カスタムプロパティ(--index)でHTML内で付与したindex番号を取得して角度を計算。 */
       --angle: calc(360deg * var(--index) / 8);
-      /** コサイン関数とサイン関数で座標位置を計算 */
+      /** コサイン関数とサイン関数で座標位置を計算。 */
       --x: calc(cos(var(--angle)) * 30px);
       --y: calc(sin(var(--angle)) * 30px);
       translate: calc(var(--x) - 50%) calc(var(--y) - 50%);
