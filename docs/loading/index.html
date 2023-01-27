@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. ローディングアニメーション</title>
+  <link rel="stylesheet" href="../base.css">
+  <style>
+    .loading {
+      position: relative;
+      height: 60px;
+      width: 60px;
+    }
+    .loading_item {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #8B41F2;
+      opacity: 0.5;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /** カスタムプロパティ(--index)でHTML内で付与したindex番号を取得して角度を計算 */
+      --angle: calc(360deg * var(--index) / 8);
+      /** コサイン関数とサイン関数で座標位置を計算 */
+      --x: calc(cos(var(--angle)) * 30px);
+      --y: calc(sin(var(--angle)) * 30px);
+      translate: calc(var(--x) - 50%) calc(var(--y) - 50%);
+      --duration: 1.8s;
+      --delay: calc(var(--duration) * var(--index) / 8);
+      animation: animate var(--duration) var(--delay) infinite ease-in-out;
+    }
+    @keyframes animate {
+      50% {
+        opacity: 1;
+        transform: scale(1.6);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>1. ローディングアニメーション</h1>
+    <div class="loading">
+      <span class="loading_item" style="--index: 0;"></span>
+      <span class="loading_item" style="--index: 1;"></span>
+      <span class="loading_item" style="--index: 2;"></span>
+      <span class="loading_item" style="--index: 3;"></span>
+      <span class="loading_item" style="--index: 4;"></span>
+      <span class="loading_item" style="--index: 5;"></span>
+      <span class="loading_item" style="--index: 6;"></span>
+      <span class="loading_item" style="--index: 7;"></span>
+    </div>
+  </div>
+</body>
+</html>
