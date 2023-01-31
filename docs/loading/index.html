@@ -22,7 +22,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      /** カスタムプロパティ(--index)でHTML内で付与したindex番号を取得して角度を計算。 */
+      /** HTML内で付与したindex番号を取得して角度を計算。 */
       --angle: calc(360deg / 8 * var(--index));
       /** コサイン関数とサイン関数で座標位置を計算。 */
       --x: calc(cos(var(--angle)) * 30px);
