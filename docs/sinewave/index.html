@@ -22,8 +22,10 @@
     }
     .line-item {
       display: inline-block;
-      /** sin関数で計算した値をy座標に適用します。 */
-      --y: calc(sin(var(--index) * 0.5) * 10px);
+      /** 0°から360°の間で角度を計算 */
+      --angle: calc(360deg / 18 * var(--index));
+      /** カーブの振れ幅を10pxにする */
+      --y: calc(sin(var(--angle)) * 10px);
       translate: 0 var(--y);
     }
   </style>
